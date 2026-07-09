@@ -1,0 +1,9 @@
+{
+  "name": "Denny IA",
+  "description": "Um assistente de voz e visão em tempo real com integração dinâmica ao Firebase e gestão financeira FocoFlow.",
+  "requestFramePermissions": [
+    "microphone",
+    "display-capture",
+    "camera"
+  ]
+}
