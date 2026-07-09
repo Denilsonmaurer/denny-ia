@@ -855,11 +855,11 @@ export const createLiveSession = (
 
             sessionPromise.then(s => {
                 try {
-                    s.sendRealtimeInput({ 
-                        media: { 
-                            mimeType: 'audio/pcm;rate=16000', 
-                            data: arrayBufferToBase64(pcmData.buffer) 
-                        } 
+                    s.sendRealtimeInput({
+                        audio: {
+                            mimeType: 'audio/pcm;rate=16000',
+                            data: arrayBufferToBase64(pcmData.buffer)
+                        }
                     });
                 } catch (err) {
                     console.error("Error sending audio data:", err);
