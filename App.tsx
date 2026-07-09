@@ -2054,9 +2054,13 @@ export const App: React.FC<AppProps> = ({ user, initialUserData, onApplyTheme })
                     playBeep(outputAudioContextRef.current, 600, 150); 
                     enviarStatusParaExtensao(true);
                 },
-                onClose: () => {
-                    console.log("Session closed by server/callback");
-                    
+                onClose: (e?: CloseEvent) => {
+                    console.log("Session closed by server/callback", {
+                        code: e?.code,
+                        reason: e?.reason,
+                        wasClean: e?.wasClean
+                    });
+
                     // Clean up reference immediately so we don't try to reuse a dead session
                     const wasController = liveSessionControllerRef.current;
                     liveSessionControllerRef.current = null;
