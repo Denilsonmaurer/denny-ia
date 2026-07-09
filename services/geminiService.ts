@@ -617,7 +617,7 @@ export const sendTextMessage = async (
 export const createLiveSession = (
     callbacks: {
         onOpen: () => void;
-        onClose: () => void;
+        onClose: (e?: CloseEvent) => void;
         onError: (e: Error | ErrorEvent) => void;
         onInputTranscriptionUpdate: (text: string) => void;
         onOutputTranscriptionUpdate: (text: string) => void;
@@ -807,7 +807,7 @@ export const createLiveSession = (
                     }
                 }
             },
-            onclose: () => callbacks.onClose(),
+            onclose: (e: CloseEvent) => callbacks.onClose(e),
             onerror: (e) => callbacks.onError(e)
         }
     });
